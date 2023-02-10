@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 def home(request):
-    print('party time')
+    print('greek freak')
     return render(request, 'home.html')
 
 def events_index(request):
