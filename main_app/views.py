@@ -6,5 +6,6 @@ def home(request):
     return render(request, 'home.html')
 
 def events_index(request):
+    print('TESTING AGAIN')
     return render(request, 'events/index.html')
 
