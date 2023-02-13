@@ -42,7 +42,7 @@ class CelestialObjectDetail(DetailView):
 class CelestialObjectCreate(CreateView):
   model = CelestialObject
   fields = '__all__'
-#   success_url = '/celestialobjects/{celestialobject_id}'
+#   success_url = '/celestialobjects/'
 
 class CelestialObjectUpdate(UpdateView):
     model = CelestialObject
@@ -51,4 +51,13 @@ class CelestialObjectUpdate(UpdateView):
 class CelestialObjectDelete(DeleteView):
     model = CelestialObject
     success_url = '/celestialobjects/'
+
+def assoc_celestialobject(request, event_id, celestialobject_id):
+    Event.objects.get(id=event_id).celestialobjects.add(celestialobject_id)
+    return redirect('events_detail', event_id=event_id)
+
+def disassoc_celestialobject(request, event_id, celestialobject_id):
+    Event.objects.get(id=event_id).celestialobjects.remove(celestialobject_id)
+    return redirect('events_detail', event_id=event_id)
+
 

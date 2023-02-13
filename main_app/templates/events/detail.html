@@ -9,6 +9,11 @@
     <p>Name - {{ event.name }}</p>
     <p>Date - {{ event.date }}</p>   
     <p>Description - {{ event.description }}</p>
+    <ul>Celestial Objects:
+      {% for celestialobject in celestialobjects %}
+      <a href="{% 'celestial_objects_detail' celestialobject.id%}"><li>{{ celestialobject.name }}</li>
+      {% endfor %}
+    </ul>
   </div>
   <div class="card-action">
     <a href="{% url 'events_update' event.id %}">Edit</a>

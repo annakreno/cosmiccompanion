@@ -14,6 +14,12 @@ class CelestialObject(models.Model):
     discovered_by = models.CharField(max_length=250)
     age = models.DecimalField(max_digits=5, decimal_places=2)
 
+    def __str__(self):
+        return f'{self.name} ({self.id})'
+
+    def get_absolute_url(self):
+        return reverse('celestial_objects_detail', kwargs={'pk': self.id})
+
 
 class Event(models.Model):
     name = models.CharField(max_length=250)
