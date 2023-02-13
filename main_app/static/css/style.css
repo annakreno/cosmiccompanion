@@ -13,7 +13,7 @@ nav {
 footer.page-footer {
   padding-top: 0;
   text-align: right;
-  position: fixed;
+  margin-top: auto;
   bottom: 0;
   background-color: rgb(31, 3, 31);
   color: rgb(66, 66, 66);
