@@ -16,5 +16,5 @@ urlpatterns = [
     path('celestialobjects/create/', views.CelestialObjectCreate.as_view(), name='celestial_objects_create'),
     path('celestialobjects/<int:pk>/update/', views.CelestialObjectUpdate.as_view(), name='celestial_objects_update'),
     path('celestialobjects/<int:pk>/delete', views.CelestialObjectDelete.as_view(), name='celestial_objects_delete'),
-
+    path('accounts/signup/', views.signup, name='signup'),
 ]
