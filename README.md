@@ -1,4 +1,3 @@
 Plutonic Rockets blasting off again!
-Anna / Andrew / Sarven
 
-blah blah blah cool story, lets get this working!!!
+Anna / Andrew / Sarven

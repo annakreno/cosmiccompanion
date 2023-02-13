@@ -6,27 +6,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cosmic Companion</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
     <header class="navbar-fixed">
         <nav>
             <div class="nav-wrapper">
-                <ul>
+            <ul>
                     <li><a href="{% url 'home' %}" class="left brand-logo">&nbsp;&nbsp;Cosmic Companion</a></li>
+            </ul>    
+                <ul class="right">
+                    <li><a href="{% url 'events_create' %}">Add an Event</a></li>
+                    <li><a href="{% url 'events_index' %}"> Browse Events</a></li>
+                    <li><a href="{% url 'about' %}">About Us</a></li>
+
                 </ul>
             </div>
         </nav>
     </header>
 
-    <ul>
-        <li><a href="{% url 'events_index' %}" class="left brand-logo">&nbsp;&nbsp;Browse Events</a></li>
+    
     </ul>
 
 {% block content %}
 {% endblock %}
-
+    <footer class="page-footer">
+       <div class="right">All Rights Reserved, &copy; 2023 Cosmic Companion &nbsp;</div>
+    </footer>
 </body>
 </html>

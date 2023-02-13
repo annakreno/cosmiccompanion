@@ -2,13 +2,43 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-  }
-  
+    background-color: rgb(31, 3, 31);
+}
   main {
     flex: 1 0 auto;
-  }
-  
-  footer.page-footer {
-    padding-top: 0;
-    text-align: right;
-  }
+}
+nav {
+  background-color: black;
+}  
+footer.page-footer {
+  padding-top: 0;
+  text-align: right;
+  margin-top: auto;
+  bottom: 0;
+  background-color: rgb(31, 3, 31);
+  color: rgb(66, 66, 66);
+}
+h1 {
+  color: rgb(203, 178, 227);
+}
+h2 {
+  color: rgb(203, 178, 227);
+}
+h4 {
+  color:rgb(224, 220, 227);
+}
+.btn {
+  background-color: black;
+}
+p {
+  color: white;
+}
+#id_description {
+  color: white;
+}
+#id_date {
+  color: white;
+}
+#id_name {
+  color: white;
+}
