@@ -9,4 +9,10 @@ urlpatterns = [
     path('events/create/', views.EventCreate.as_view(), name='events_create'),
     path('events/<int:pk>/update/', views.EventUpdate.as_view(), name='events_update'),
     path('events/<int:pk>/delete/', views.EventDelete.as_view(), name='events_delete'),
+    path('celestialobjects/', views.CelestialObjectList.as_view(), name='celestial_objects_index'),
+    path('celestialobjects/<int:pk>/', views.CelestialObjectDetail.as_view(), name='celestial_objects_detail'),
+    path('celestialobjects/create/', views.CelestialObjectCreate.as_view(), name='celestial_objects_create'),
+    path('celestialobjects/<int:pk>/update/', views.CelestialObjectUpdate.as_view(), name='celestial_objects_update'),
+    path('celestialobjects/<int:pk>/delete', views.CelestialObjectDelete.as_view(), name='celestial_objects_delete'),
+
 ]

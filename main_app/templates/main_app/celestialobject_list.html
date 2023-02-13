@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>List of Celestial Objects</h1>
+
+
+{% for celestialobject in celestialobject_list %}
+  <div class="card" style="color: white; background-color: purple;">
+    <a href="{% url 'celestial_objects_detail' celestialobject.id %}">
+        <div class="card-content">
+            <span class="card-title">{{ celestialobject.name }}</span>
+                <p>Last Appearance - {{ celestialobject.last_appearance }}</p>   
+                <p>Description - {{ celestialobject.description }}</p>
+                <p>Discovered By - {{ celestialobject.discovered_by }}</p>
+                <p>Age - {{ celestialobject.age }}</p>
+        </div>
+    </a>
+  </div>
+{% endfor %}
+
+{% endblock %}
