@@ -6,6 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Event, CelestialObject
+from .forms import EventForm
 
 # Create your views here.
 def home(request):
@@ -27,12 +28,12 @@ def events_detail(request, event_id):
 
 
 class EventCreate(LoginRequiredMixin, CreateView):
-    model = Event
-    fields = ['name', 'date', 'description']
-
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super().form_valid(form)
+  model = Event
+  form_class = EventForm
+  template_name = 'main_app/event_form.html'
+  def form_valid(self, form):
+    form.instance.user = self.request.user
+    return super().form_valid(form)
 
 class EventUpdate(LoginRequiredMixin, UpdateView):
     model = Event

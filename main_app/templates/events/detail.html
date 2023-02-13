@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h1>Celestial Event Details</h1>
+<h1>Cosmic Event Details</h1>
 
 <div class="card">
   <div class="card-content" style="color: white; background: purple;">
@@ -10,9 +10,13 @@
     <p>Date - {{ event.date }}</p>   
     <p>Description - {{ event.description }}</p>
     <ul>Celestial Objects:
-      {% for celestialobject in celestialobjects %}
-      <a href=""><li>{{ celestialobject.name }}</li>
-      {% endfor %}
+      {% if celestialobjects %}
+        {% for celestialobject in celestialobjects %}
+        <a href=""><li>{{ celestialobject.name }}</li>
+        {% endfor %}
+      {% else %}
+        <li>No celestial objects associated with this event</li>
+      {% endif %}
     </ul>
   </div>
   <div class="card-action">
