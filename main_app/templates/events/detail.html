@@ -23,6 +23,11 @@
     <a href="{% url 'events_update' event.id %}">Edit</a>
     <a href="{% url 'events_delete' event.id %}">Delete</a>
   </div>
+  {% for photo in event.photo_set.all %}
+      <img class="responsive-img card-panel" src="{{photo.url}}">
+    {% empty %}
+      <div class="card-panel teal-text center-align">No Photos Uploaded</div>
+    {% endfor %}
 </div>
 
 {% endblock %}
