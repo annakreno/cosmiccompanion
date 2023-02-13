@@ -18,6 +18,9 @@ footer.page-footer {
   background-color: rgb(31, 3, 31);
   color: rgb(66, 66, 66);
 }
+li {
+  color: white;
+}
 h1 {
   color: rgb(203, 178, 227);
 }
