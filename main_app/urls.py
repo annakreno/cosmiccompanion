@@ -9,6 +9,7 @@ urlpatterns = [
     path('events/create/', views.EventCreate.as_view(), name='events_create'),
     path('events/<int:pk>/update/', views.EventUpdate.as_view(), name='events_update'),
     path('events/<int:pk>/delete/', views.EventDelete.as_view(), name='events_delete'),
+    path('events/<int:event_id>/add_photo/', views.add_photo, name='add_photo'),
     path('events/<int:event_id>/assoc_event/<int:celestialobject_id>', views.assoc_celestialobject, name='assoc_celestialobject'),
     path('events/<int:event_id>/disassoc_event/<int:celestialobject_id>', views.disassoc_celestialobject, name='disassoc_celestialobject'),
     path('celestialobjects/', views.CelestialObjectList.as_view(), name='celestial_objects_index'),
@@ -17,4 +18,5 @@ urlpatterns = [
     path('celestialobjects/<int:pk>/update/', views.CelestialObjectUpdate.as_view(), name='celestial_objects_update'),
     path('celestialobjects/<int:pk>/delete', views.CelestialObjectDelete.as_view(), name='celestial_objects_delete'),
     path('accounts/signup/', views.signup, name='signup'),
+    
 ]
