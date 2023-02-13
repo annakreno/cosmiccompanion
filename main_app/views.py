@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Event
+from django.views.generic import ListView, DetailView
+from .models import Event, CelestialObject
 
 # Create your views here.
 def home(request):
@@ -31,4 +32,23 @@ class EventUpdate(UpdateView):
 class EventDelete(DeleteView):
     model = Event
     success_url = '/events/'
+
+class CelestialObjectList(ListView):
+    model = CelestialObject
+
+class CelestialObjectDetail(DetailView):
+    model = CelestialObject
+
+class CelestialObjectCreate(CreateView):
+  model = CelestialObject
+  fields = '__all__'
+#   success_url = '/celestialobjects/{celestialobject_id}'
+
+class CelestialObjectUpdate(UpdateView):
+    model = CelestialObject
+    fields = ['name', 'description', 'last_appearance']
+
+class CelestialObjectDelete(DeleteView):
+    model = CelestialObject
+    success_url = '/celestialobjects/'
 
