@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 from .models import Event, CelestialObject
+from .forms import EventForm
 
 # Create your views here.
 def home(request):
@@ -22,7 +23,8 @@ def events_detail(request, event_id):
 
 class EventCreate(CreateView):
   model = Event
-  fields = ['name', 'date', 'description']
+  form_class = EventForm
+  template_name = 'main_app/event_form.html'
 #   success_url = '/events/{event_id}'
 
 class EventUpdate(UpdateView):
