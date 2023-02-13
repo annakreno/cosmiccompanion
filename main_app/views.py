@@ -18,12 +18,11 @@ def home(request):
 def about(request):
     return render(request, 'about.html') 
 
-@login_required
+
 def events_index(request):
-    events = Event.objects.filter(user=request.user)
+    events = Event.objects.all()
     return render(request, 'events/index.html', { 'events': events })
 
-@login_required
 def events_detail(request, event_id):
     event = Event.objects.get(id=event_id)
     return render(request, 'events/detail.html', { 'event': event })
@@ -31,7 +30,10 @@ def events_detail(request, event_id):
 class EventCreate(LoginRequiredMixin, CreateView):
   model = Event
   fields = ['name', 'date', 'description']
-
+  def form_valid(self, form):
+    form.instance.user = self.request.user
+    return super().form_valid(form)
+  
 class EventUpdate(LoginRequiredMixin, UpdateView):
     model = Event
     fields = ['name', 'date', 'description']
