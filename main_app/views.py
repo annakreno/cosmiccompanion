@@ -11,8 +11,29 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Event, CelestialObject, Photo
 from .forms import EventForm
 from .forms import CelestialObjectForm
+import requests
+from datetime import date
+
 
 # Create your views here.
+def apod(request):
+    api_key = 'JEY9zPlHaKd05eOsx447DLTJu2n51dv8TMBNZc4a'
+    today = date.today()
+    url = f'https://api.nasa.gov/planetary/apod?date={today}&api_key={api_key}'
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+        context = {
+            'title': data['title'],
+            'date': data['date'],
+            'explanation': data['explanation'],
+            'image_url': data['url'],
+        }
+        return render(request, 'home.html', context)
+    else:
+        return render(request, 'error.html', {'error': 'Failed to retrieve APOD.'})
+
+
 def home(request):
     return render(request, 'home.html')
 
