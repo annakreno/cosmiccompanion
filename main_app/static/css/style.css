@@ -36,9 +36,6 @@ h4 {
 .btn {
   background-color: black;
 }
-p {
-  /* color: white; */
-}
 #id_description, #id_date, #id_name, #id_password, #id_username, #id_password1, #id_password2, #id_last_appearance, #id_discovered_by, #id_age {
   color: white;
 }
