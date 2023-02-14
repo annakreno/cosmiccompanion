@@ -9,7 +9,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Event, CelestialObject, Photo
-# from .forms import EventForm
+from .forms import EventForm
 
 # Create your views here.
 def home(request):
@@ -29,7 +29,7 @@ def events_detail(request, event_id):
     
 class EventCreate(LoginRequiredMixin, CreateView):
   model = Event
-  fields = ['name', 'date', 'description']
+  form_class = EventForm
   def form_valid(self, form):
     form.instance.user = self.request.user
     return super().form_valid(form)
