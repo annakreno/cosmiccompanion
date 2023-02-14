@@ -37,8 +37,13 @@ h4 {
   background-color: black;
 }
 p {
+  /* color: white; */
+}
+#id_description, #id_date, #id_name, #id_password, #id_username, #id_password1, #id_password2, #id_last_appearance, #id_discovered_by, #id_age {
   color: white;
 }
-#id_description, #id_date, #id_name, #id_password, #id_username, #id_password1, #id_password2, #id_last_appearance {
-  color: white;
+.about_people {
+  color: green;
+  flex-direction: column;
+  position: relative;
 }
