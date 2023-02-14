@@ -11,7 +11,6 @@ class EventForm(forms.ModelForm):
       super().__init__(*args, **kwargs) 
       celestialobjects = CelestialObject.objects.all()
       choices = [(celestialobject.id, celestialobject.name) for celestialobject in celestialobjects]
-      print(">>>>>", choices)
-      self.fields['celestial_objects'].widget = forms.Select(choices=choices)
+      self.fields['celestial_objects'].widget = forms.SelectMultiple(choices=choices)
       
       
