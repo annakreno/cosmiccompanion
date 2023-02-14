@@ -100,4 +100,4 @@ def add_photo(request, event_id):
         except Exception as e:
             print('An error occurred uploading file to S3')
             print(e)
-    return redirect('detail', event_id=event_id)
+    return redirect('events_detail', event_id=event_id)
