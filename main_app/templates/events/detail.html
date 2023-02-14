@@ -10,13 +10,9 @@
     <p>Date - {{ event.date }}</p>   
     <p>Description - {{ event.description }}</p>
     <ul>Celestial Objects:
-      {% if celestialobjects %}
-        {% for celestialobject in celestialobjects %}
-        <a href=""><li>{{ celestialobject.name }}</li>
+        {% for celestial_object in event.celestial_objects.all %}
+        <a href=""><li>{{ celestial_object.name }}</li></a>
         {% endfor %}
-      {% else %}
-        <li>No celestial objects associated with this event</li>
-      {% endif %}
     </ul>
   </div>
   <div class="card-action" style="color: white; background-image: url(https://i.imgur.com/Bl8jv0P.png);">

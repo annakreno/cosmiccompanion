@@ -12,16 +12,12 @@
             <span class="card-title">{{ event.name }}</span>
             <p>Date - {{ event.date }}</p>   
             <p>Description - {{ event.description }}</p>
-            <p>User - {{ event.user }}</p>
+            <!-- <p>User - {{ event.user }}</p> -->
             <ul>Celestial Objects -
-                  {% if celestialobjects %}
-                    {% for celestialobject in celestialobjects %}
-                    <li>{{ celestialobject.name }}</li>
-                    {% endfor %}
-                  {% else %}
-                    <li>No celestial objects associated with this event</li>
-                  {% endif %}
-                </ul>
+                {% for celestial_object in event.celestial_objects.all %}
+                  <li>{{ celestial_object.name }}</li>
+                {% endfor %}
+            </ul>
         </div>
     </a>
   </div>
