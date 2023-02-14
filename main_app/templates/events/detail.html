@@ -30,12 +30,18 @@
     {% empty %}
       <div class="card-panel teal-text center-align" style="color: white; background-image: url(https://i.imgur.com/Bl8jv0P.png);">No Photos Uploaded</div>
     {% endfor %}
+  {% if user.is_authenticated %}
+      {% if user.id == event.user.id %}
     <form action="{% url 'add_photo' event.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
       {% csrf_token %}
       <input type="file" name="photo-file">
       <br><br>
       <button type="submit" class="btn">Upload Photo</button>
   </form>
+  {% else %}
+        <p></p>
+      {% endif %}
+    {% endif %}
 </div>
 
 {% endblock %}
