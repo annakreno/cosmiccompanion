@@ -4,8 +4,8 @@
 
 <h1>Cosmic Event Details</h1>
 
-<div class="card">
-  <div class="card-content" style="color: white; background: purple;">
+<div class="card" style="color: white; background-image: url(https://i.imgur.com/Bl8jv0P.png);">
+  <div class="card-content" style="color: white; background-image: url(https://i.imgur.com/Bl8jv0P.png);">
     <p>Name - {{ event.name }}</p>
     <p>Date - {{ event.date }}</p>   
     <p>Description - {{ event.description }}</p>
@@ -19,14 +19,14 @@
       {% endif %}
     </ul>
   </div>
-  <div class="card-action">
+  <div class="card-action" style="color: white; background-image: url(https://i.imgur.com/Bl8jv0P.png);">
     <a href="{% url 'events_update' event.id %}">Edit</a>
     <a href="{% url 'events_delete' event.id %}">Delete</a>
   </div>
   {% for photo in event.photo_set.all %}
-      <img class="responsive-img card-panel" src="{{photo.url}}">
+      <img class="responsive-img card-panel" src="{{photo.url}}" style="color: white; background-image: url(https://i.imgur.com/Bl8jv0P.png);">
     {% empty %}
-      <div class="card-panel teal-text center-align">No Photos Uploaded</div>
+      <div class="card-panel teal-text center-align" style="color: white; background-image: url(https://i.imgur.com/Bl8jv0P.png);">No Photos Uploaded</div>
     {% endfor %}
 </div>
 

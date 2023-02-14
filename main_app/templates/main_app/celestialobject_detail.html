@@ -5,14 +5,14 @@
 <h1>Celestial Object Details</h1>
 
 <div class="card">
-  <div class="card-content" style="color: white; background: purple;">
+  <div class="card-content" style="color: white; background-image: url(https://i.imgur.com/Bl8jv0P.png);">
     <p>Name - {{ celestialobject.name }}</p>
     <p>Last Appearance - {{ celestialobject.last_appearance }}</p>   
     <p>Description - {{ celestialobject.description }}</p>
     <p>Discovered By - {{ celestialobject.discovered_by }}</p>
     <p>Age - {{ celestialobject.age }}</p>
   </div>
-  <div class="card-action">
+  <div class="card-action" style="color: white; background-image: url(https://i.imgur.com/Bl8jv0P.png);">
     <a href="{% url 'celestial_objects_update' celestialobject.id %}">Edit</a>
     <a href="{% url 'celestial_objects_delete' celestialobject.id %}">Delete</a>
   </div>
