@@ -1,8 +1,10 @@
 from django.urls import path
 from . import views
+from .views import apod
+from django.urls import path
 
 urlpatterns = [
-    path('', views.home, name='home'),
+    path('', views.apod, name='home'),
     path('about/', views.about, name='about'),
     path('events/', views.events_index, name='events_index'),
     path('events/<int:event_id>/', views.events_detail, name='events_detail'),
@@ -18,5 +20,6 @@ urlpatterns = [
     path('celestialobjects/<int:pk>/update/', views.CelestialObjectUpdate.as_view(), name='celestial_objects_update'),
     path('celestialobjects/<int:pk>/delete', views.CelestialObjectDelete.as_view(), name='celestial_objects_delete'),
     path('accounts/signup/', views.signup, name='signup'),
-    
+    path('apod/', apod, name='apod'),
+  
 ]

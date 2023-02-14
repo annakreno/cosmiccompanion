@@ -2,9 +2,10 @@
 
 {% block content %}
 
-<h1>Home</h1>
-    <ul>
-        <li><img src=""></li>
-    </ul>
-
+    <h1>{{ title }}</h1>
+  
+        <p>Date: {{ date }}</p>
+        {% comment %} <p>{{ explanation }}</p> {% endcomment %}
+        <img src="{{ image_url }}" alt="{{ title }}">
+    
 {% endblock %}
