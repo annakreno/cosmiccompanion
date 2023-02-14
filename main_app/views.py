@@ -38,9 +38,18 @@ class EventCreate(LoginRequiredMixin, CreateView):
 class EventUpdate(LoginRequiredMixin, UpdateView):
     model = Event
     form_class = EventForm
-    # def form_valid(self, form):
-    #     form.instance.user = self.request.user
-    #     return super().form_valid(form)
+
+    def form_valid(self, form):
+        event = form.save(commit=False)
+        if event.user !=self.request.user:
+            return redirect("/events/")
+        return super().form_valid(form)
+    
+    def dispatch(self, request, *args, **kwargs):
+        event = self.get_object()
+        if event.user != self.request.user:
+            return redirect("/events/")
+        return super().dispatch(request, *args, **kwargs)
 
 class EventDelete(LoginRequiredMixin, DeleteView):
     model = Event
