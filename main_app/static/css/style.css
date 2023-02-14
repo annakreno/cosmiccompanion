@@ -26,6 +26,9 @@ li {
 ul {
   margin: auto;
 }
+a {
+  color: rgb(0, 201, 223);
+}
 h1 {
   color: rgb(203, 178, 227);
   font-family: 'Trispace', sans-serif;
