@@ -14,3 +14,12 @@ class EventForm(forms.ModelForm):
       self.fields['celestial_objects'].widget = forms.SelectMultiple(choices=choices)
       
       
+class CelestialObjectForm(forms.ModelForm):
+    class Meta:
+        model = CelestialObject
+        fields = ['name', 'description', 'last_appearance', 'discovered_by', 'age']
+    def __init__(self, *args, **kwargs):
+      super().__init__(*args, **kwargs)
+    #   events1 = Event.objects.all()
+    #   choices = [(event.id, event.name) for event in events1]
+    #   self.fields['events'].widget = forms.SelectMultiple(choices=choices)

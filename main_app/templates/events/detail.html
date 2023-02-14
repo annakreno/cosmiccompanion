@@ -6,14 +6,15 @@
 
 <div class="card" style="color: white; background-image: url(https://i.imgur.com/Bl8jv0P.png);">
   <div class="card-content" style="color: white; background-image: url(https://i.imgur.com/Bl8jv0P.png);">
-    <p>Name - {{ event.name }}</p>
+    <h3>{{ event.name }}</h3>
     <p>Date - {{ event.date }}</p>   
     <p>Description - {{ event.description }}</p>
-    <ul>Celestial Objects:
-        {% for celestial_object in event.celestial_objects.all %}
-        <a href=""><li>{{ celestial_object.name }}</li></a>
-        {% endfor %}
-    </ul>
+  </div>
+  <div class="card-content" style="color: white; background-image: url(https://i.imgur.com/Bl8jv0P.png);">
+    <p>Related Celestial Objects:</p>
+    {% for celestial_object in event.celestial_objects.all %}
+      <li><a href=" {% url 'celestial_objects_detail' celestial_object.id %} "> {{ celestial_object.name }}</a></li>
+    {% endfor %}
   </div>
   <div class="card-action" style="color: white; background-image: url(https://i.imgur.com/Bl8jv0P.png);">
     {% if user.is_authenticated %}

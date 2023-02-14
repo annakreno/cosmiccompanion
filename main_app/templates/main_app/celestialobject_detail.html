@@ -6,15 +6,22 @@
 
 <div class="card">
   <div class="card-content" style="color: white; background-image: url(https://i.imgur.com/Bl8jv0P.png);">
-    <p>Name - {{ celestialobject.name }}</p>
+    <h3>{{ celestialobject.name }}</h3>
     <p>Last Appearance - {{ celestialobject.last_appearance }}</p>   
     <p>Description - {{ celestialobject.description }}</p>
     <p>Discovered By - {{ celestialobject.discovered_by }}</p>
     <p>Age - {{ celestialobject.age }}</p>
   </div>
+  <div class="card-content" style="color: white; background-image: url(https://i.imgur.com/Bl8jv0P.png);">
+    <p>Upcoming Events:</p>
+      {% for event in events %}
+      <li><a href=" {% url 'events_detail' event.id %} ">{{ event.name }}</a></li>
+      {% endfor %}
+  
+  </div>
   <div class="card-action" style="color: white; background-image: url(https://i.imgur.com/Bl8jv0P.png);">
     {% if user.is_authenticated %}
-      {% if user.id == event.user.id %}
+      {% if user.id == celestialobject.user.id %}
     <a href="{% url 'celestial_objects_update' celestialobject.id %}">Edit</a>
     <a href="{% url 'celestial_objects_delete' celestialobject.id %}">Delete</a>
       {% else %}

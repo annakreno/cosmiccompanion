@@ -10,6 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Event, CelestialObject, Photo
 from .forms import EventForm
+from .forms import CelestialObjectForm
 
 # Create your views here.
 def home(request):
@@ -60,15 +61,28 @@ class CelestialObjectList(ListView):
 
 class CelestialObjectDetail(DetailView):
     model = CelestialObject
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        celestial_object = self.object
+        events = celestial_object.event_set.all()
+        context['events'] = events
+        return context
 
 class CelestialObjectCreate(LoginRequiredMixin, CreateView):
-  model = CelestialObject
-  fields = '__all__'
-#   success_url = '/celestialobjects/'
+    model = CelestialObject
+    form_class = CelestialObjectForm
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 class CelestialObjectUpdate(LoginRequiredMixin, UpdateView):
     model = CelestialObject
-    fields = ['name', 'description', 'last_appearance']
+    form_class = CelestialObjectForm
+    def form_valid(self, form):
+        celestialobject = form.save(commit=False)
+        if celestialobject.user !=self.request.user:
+            return redirect("/celestialevents/")
+        return super().form_valid(form)
 
 class CelestialObjectDelete(LoginRequiredMixin, DeleteView):
     model = CelestialObject
