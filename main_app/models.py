@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 
 class CelestialObject(models.Model):
     name = models.CharField(max_length=250)
-    description = models.TextField(max_length=250)
+    description = models.TextField(max_length=5000)
     last_appearance = models.DateTimeField()
     discovered_by = models.CharField(max_length=250)
     age = models.DecimalField(max_digits=5, decimal_places=2)
@@ -22,7 +22,7 @@ class CelestialObject(models.Model):
 class Event(models.Model):
     name = models.CharField(max_length=250)
     date = models.DateTimeField()
-    description = models.TextField(max_length=250)
+    description = models.TextField(max_length=5000)
     celestial_objects = models.ManyToManyField(CelestialObject)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
