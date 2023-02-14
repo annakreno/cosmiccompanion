@@ -42,10 +42,10 @@ class EventDelete(LoginRequiredMixin, DeleteView):
     model = Event
     success_url = '/events/'
 
-class CelestialObjectList(LoginRequiredMixin, ListView):
+class CelestialObjectList(ListView):
     model = CelestialObject
 
-class CelestialObjectDetail(LoginRequiredMixin, DetailView):
+class CelestialObjectDetail(DetailView):
     model = CelestialObject
 
 class CelestialObjectCreate(LoginRequiredMixin, CreateView):
