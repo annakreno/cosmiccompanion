@@ -45,11 +45,11 @@ class EventUpdate(LoginRequiredMixin, UpdateView):
             return redirect("/events/")
         return super().form_valid(form)
     
-    def dispatch(self, request, *args, **kwargs):
-        event = self.get_object()
-        if event.user != self.request.user:
-            return redirect("/events/")
-        return super().dispatch(request, *args, **kwargs)
+    # def dispatch(self, request, *args, **kwargs):
+    #     event = self.get_object()
+    #     if event.user != self.request.user:
+    #         return redirect("/events/")
+    #     return super().dispatch(request, *args, **kwargs)
 
 class EventDelete(LoginRequiredMixin, DeleteView):
     model = Event
