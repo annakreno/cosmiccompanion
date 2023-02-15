@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
-from datetime import date
+from datetime import date, time
+from django.utils import timezone
 from django.contrib.auth.models import User
 
 # Create your models here.
@@ -8,7 +9,7 @@ from django.contrib.auth.models import User
 class CelestialObject(models.Model):
     name = models.CharField(max_length=250)
     description = models.TextField(max_length=5000)
-    last_appearance = models.DateTimeField()
+    last_appearance = models.DateField()
     discovered_by = models.CharField(max_length=250)
     age = models.DecimalField(max_digits=5, decimal_places=2)
 
@@ -21,7 +22,8 @@ class CelestialObject(models.Model):
 
 class Event(models.Model):
     name = models.CharField(max_length=250)
-    date = models.DateTimeField()
+    date = models.DateField()
+    # time = models.TimeField()
     description = models.TextField(max_length=5000)
     celestial_objects = models.ManyToManyField(CelestialObject)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
