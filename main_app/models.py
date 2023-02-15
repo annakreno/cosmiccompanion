@@ -18,6 +18,9 @@ class CelestialObject(models.Model):
 
     def get_absolute_url(self):
         return reverse('celestial_objects_detail', kwargs={'pk': self.id})
+    
+    class Meta:
+        ordering = ['name']
 
 
 class Event(models.Model):
@@ -33,6 +36,9 @@ class Event(models.Model):
 
     def get_absolute_url(self):
         return reverse('events_detail', kwargs={'event_id': self.id})
+    
+    class Meta:
+        ordering = ['date']
 
 
 class Photo(models.Model):
