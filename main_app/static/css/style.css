@@ -82,13 +82,32 @@ table {
 #id_time {
   color: white;
 }
-
-.timepicker-tick, .timepicker-digital-display, .confirmation-btns {
-  /* color: red; */
-  background-color: pink;
-  color: blue;
+.timepicker-canvas-bg {
+  color: black;
+  fill: black;
 }
-
+.timepicker-canvas-bearing {
+  color: black;
+  fill: black;
+}
+.timepicker-canvas line {
+  stroke: black;
+}
+.timepicker-digital-display {
+  background-color: rgba(26, 0, 6, 0.71);
+}
+.timepicker-plate {
+  background-image: url("https://i.imgur.com/Bl8jv0P.png");
+}
+.timepicker-analog-display {
+  background-image: url("https://i.imgur.com/Bl8jv0P.png");
+}
+.timepicker-tick {
+  color: white;
+}
+.timepicker-close {
+  color: white;
+}
 label {
   color: white;
 }
@@ -127,6 +146,9 @@ label {
   width: 75%;
   margin-left: auto;
   margin-right: auto;
+}
+.card-panel {
+  background-image: url(https://i.imgur.com/Bl8jv0P.png);
 }
 .daily-home {
   width: 75%;
