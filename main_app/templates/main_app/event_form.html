@@ -19,8 +19,31 @@
       autoClose: true
     });
 
+    const timeEl = document.getElementById('id_time');
+    M.Timepicker.init(timeEl, {
+      defaultTime: 'now',
+      autoClose: true,
+      twelveHour: true,
+    });
+
     const selectEl = document.getElementById('id_celestial_objects');
     M.FormSelect.init(selectEl);
+
+    timeEl.addEventListener('change', function(evt) {
+      let [time, modifier] = evt.target.value.split(' ')
+      let [hours, minutes] = time.split(':')
+      console.log(hours, minutes, modifier)
+      if (hours === '12') {
+        hours = "00"
+      }
+      if (modifier === 'PM') {
+        hours = parseInt(hours, 10) + 12
+      }
+      evt.target.value = `${hours}:${minutes}`
+      console.log(evt.target.value)
+    })
+
+
   </script>
 
 {% endblock %}
