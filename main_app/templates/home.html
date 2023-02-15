@@ -2,10 +2,11 @@
 
 {% block content %}
 
-    <h1>{{ title }}</h1>
-  
+    
+    <div class=daily-home>
+        <h1>{{ title }}</h1>
         <p>Date: {{ date }}</p>
         {% comment %} <p>{{ explanation }}</p> {% endcomment %}
-        <img src="{{ image_url }}" alt="{{ title }}">
-    
+        <img src="{{ image_url }}" alt="{{ title }}" width="1500" height="1200">
+    </div>
 {% endblock %}
