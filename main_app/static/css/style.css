@@ -107,9 +107,6 @@ label {
   color: white;
   background-image: url("https://i.imgur.com/Bl8jv0P.png");
 }
-.select-wrapper {
-  width: 500px;
-}
 .select-wrapper:hover {
   background-color: hsla(0, 100%, 90%, 0.3);
 }
