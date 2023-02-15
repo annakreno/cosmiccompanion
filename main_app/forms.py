@@ -6,7 +6,7 @@ from .models import CelestialObject
 class EventForm(forms.ModelForm):
     class Meta:
         model = Event
-        fields = ['name', 'date', 'description', 'celestial_objects']
+        fields = ['name', 'date', 'time', 'description', 'celestial_objects']
     def __init__(self, *args, **kwargs): 
       super().__init__(*args, **kwargs) 
       celestialobjects = CelestialObject.objects.all()

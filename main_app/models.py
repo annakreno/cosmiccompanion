@@ -26,7 +26,7 @@ class CelestialObject(models.Model):
 class Event(models.Model):
     name = models.CharField(max_length=250)
     date = models.DateField()
-    # time = models.TimeField()
+    time = models.TimeField()
     description = models.TextField(max_length=5000)
     celestial_objects = models.ManyToManyField(CelestialObject)
     user = models.ForeignKey(User, on_delete=models.CASCADE)

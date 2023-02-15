@@ -141,3 +141,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = '/events/'
 LOGOUT_REDIRECT_URL = '/'
+
+TIME_FORMAT = 'P'
+TIME_INPUT_FORMATS = ['%H:%M']
