@@ -11,6 +11,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Event, CelestialObject, Photo
 from .forms import EventForm
 from .forms import CelestialObjectForm
+from .forms import DateRangeForm
 import requests
 from datetime import datetime
 import pytz
@@ -46,7 +47,12 @@ def about(request):
 
 def events_index(request):
     events = Event.objects.all()
-    return render(request, 'events/index.html', { 'events': events })
+    form = DateRangeForm(request.GET)
+    if form.is_valid():
+        start_date = form.cleaned_data['start_date']
+        end_date = form.cleaned_data['end_date']
+        events = events.filter(date__range=(start_date, end_date))
+    return render(request, 'events/index.html', { 'events': events, 'form': form })
 
 def events_detail(request, event_id):
     event = Event.objects.get(id=event_id)

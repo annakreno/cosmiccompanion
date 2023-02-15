@@ -4,6 +4,15 @@
 
 <h1>List of Celestial Events</h1>
 
+<div> 
+
+  <form method="get">
+    {{ form.as_p }}
+    <button type="submit">Filter</button>
+  </form>
+
+</div>
+
 
 {% for event in events %}
   <div class="card">
@@ -21,6 +30,27 @@
         </div>
     </a>
   </div>
+{% empty %}
+  <li> No events found for this date range.</li>
 {% endfor %}
+
+<script>
+  const startDateEl = document.getElementById('id_start_date');
+  M.Datepicker.init(startDateEl, {
+    format: 'yyyy-mm-dd',
+    defaultDate: new Date(),
+    setDefaultDate: true,
+    autoClose: true
+  });
+
+  const endDateEl = document.getElementById('id_end_date');
+  M.Datepicker.init(endDateEl, {
+    format: 'yyyy-mm-dd',
+    defaultDate: new Date(),
+    setDefaultDate: true,
+    autoClose: true
+  });
+
+</script>
 
 {% endblock %}
