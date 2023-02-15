@@ -21,7 +21,7 @@
   </div>
   <div class="card-action" style="color: white; background-image: url(https://i.imgur.com/Bl8jv0P.png);">
     {% if user.is_authenticated %}
-      {% if user.id == celestialobject.user.id %}
+      {% if user.id == 3 %}
     <a href="{% url 'celestial_objects_update' celestialobject.id %}">Edit</a>
     <a href="{% url 'celestial_objects_delete' celestialobject.id %}">Delete</a>
       {% else %}

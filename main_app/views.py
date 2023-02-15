@@ -12,22 +12,25 @@ from .models import Event, CelestialObject, Photo
 from .forms import EventForm
 from .forms import CelestialObjectForm
 import requests
-from datetime import date
+from datetime import datetime
+import pytz
 
 
 # Create your views here.
 def apod(request):
     api_key = 'JEY9zPlHaKd05eOsx447DLTJu2n51dv8TMBNZc4a'
-    today = date.today()
+    pacific_tz = pytz.timezone('US/Pacific')
+    today = datetime.now(pacific_tz).date()
     url = f'https://api.nasa.gov/planetary/apod?date={today}&api_key={api_key}'
     response = requests.get(url)
+    print("!!!!!!!!!!!!", response.status_code)
     if response.status_code == 200:
         data = response.json()
         context = {
             'title': data['title'],
             'date': data['date'],
             'explanation': data['explanation'],
-            'image_url': data['url'],
+            'image_url': data['hdurl'],
         }
         return render(request, 'home.html', context)
     else:
