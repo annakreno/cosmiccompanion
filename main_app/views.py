@@ -123,6 +123,8 @@ def disassoc_celestialobject(request, event_id, celestialobject_id):
     return redirect('events_detail', event_id=event_id)
 
 
+
+
 def signup(request):
   error_message = ''
   if request.method == 'POST':
