@@ -21,5 +21,5 @@ urlpatterns = [
     path('celestialobjects/<int:pk>/delete', views.CelestialObjectDelete.as_view(), name='celestial_objects_delete'),
     path('accounts/signup/', views.signup, name='signup'),
     path('apod/', apod, name='apod'),
-  
+    
 ]

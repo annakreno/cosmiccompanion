@@ -29,6 +29,12 @@ ul {
 a {
   color: rgb(0, 201, 223);
 }
+p {
+  color: rgb(0, 201, 223);
+}
+.tab {
+  color: rgb(0, 224, 0);
+}
 h1 {
   color: rgb(203, 178, 227);
   font-family: 'Trispace', sans-serif;
