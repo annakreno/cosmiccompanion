@@ -16,4 +16,4 @@ profile = UserProfile.objects.create(user=user)
 to retrieve a user's profile.. 
     user = User.objects.get(username='john')
     profile = UserProfile.objects.get(user=user)
-    saved_events = Event.objects.filter
+    saved_events = 
