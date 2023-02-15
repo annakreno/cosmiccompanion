@@ -78,6 +78,17 @@ table {
 #id_description, #id_date, #id_name, #id_password, #id_username, #id_password1, #id_password2, #id_last_appearance, #id_discovered_by, #id_age {
   color: white;
 }
+
+#id_time {
+  color: white;
+}
+
+.timepicker-tick, .timepicker-digital-display, .confirmation-btns {
+  /* color: red; */
+  background-color: pink;
+  color: blue;
+}
+
 label {
   color: white;
 }
