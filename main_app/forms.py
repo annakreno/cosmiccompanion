@@ -23,3 +23,8 @@ class CelestialObjectForm(forms.ModelForm):
     #   events1 = Event.objects.all()
     #   choices = [(event.id, event.name) for event in events1]
     #   self.fields['events'].widget = forms.SelectMultiple(choices=choices)
+
+
+class DateRangeForm(forms.Form):
+    start_date = forms.DateField()
+    end_date = forms.DateField()
