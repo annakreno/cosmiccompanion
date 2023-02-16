@@ -24,7 +24,6 @@ def apod(request):
     today = datetime.now(pacific_tz).date()
     url = f'https://api.nasa.gov/planetary/apod?date={today}&api_key={api_key}'
     response = requests.get(url)
-    print("!!!!!!!!!!!!", response.status_code)
     if response.status_code == 200:
         data = response.json()
         context = {
@@ -33,7 +32,9 @@ def apod(request):
             'explanation': data['explanation'],
             'image_url': data['hdurl'],
         }
+        print("!!!!!!!!!!!!", context)
         return render(request, 'home.html', context)
+        
     else:
         return render(request, 'error.html', {'error': 'Failed to retrieve APOD.'})
 
