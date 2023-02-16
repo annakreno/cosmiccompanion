@@ -71,19 +71,9 @@ table {
   margin-left: auto;
   margin-right: auto;
 }
-.btn {
-  background-color: hsla(0, 100%, 90%, 0.499);
-  position: static;
-  border-radius: 1rem;
-  /* margin-left: 50%; */
-}
-.btn:hover {
-  background-color: hsla(0, 100%, 90%, 0.3);
-}
 #id_description, #id_date, #id_name, #id_password, #id_username, #id_password1, #id_password2, #id_last_appearance, #id_discovered_by, #id_age, #id_start_date, #id_end_date {
   color: white;
 }
-
 #id_time {
   color: white;
 }
@@ -171,6 +161,26 @@ label {
   font-size: small;
   flex-wrap: wrap;
 }
+.btn {
+  background-color: hsla(0, 100%, 90%, 0.499);
+  position: static;
+  border-radius: 1rem;
+  /* margin-left: 50%; */
+}
+.btn:hover {
+  background-color: hsla(0, 100%, 90%, 0.3);
+}
+.btn-delete {
+  color: rgb(160, 0, 0);
+  background-color: hsla(0, 100%, 90%, 0.499);
+  border-radius: 1rem;
+  font-size: small;
+  border: none;
+  padding: 10px;  
+}
+.btn-delete:hover {
+  background-color: hsla(0, 100%, 90%, 0.3);
+}
 .filter-button {
   background-color: black;
   color: white;
@@ -195,6 +205,9 @@ label.custom-file-upload {
   border-radius: 5px;
   cursor: pointer;
   border-radius: 1rem;
+}
+label.custom-file-upload:hover {
+  background-color: hsla(0, 100%, 90%, 0.3);
 }
 input[type="submit"]:hover {
   background-color: #000000;
