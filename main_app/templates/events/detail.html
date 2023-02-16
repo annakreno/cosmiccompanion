@@ -34,7 +34,11 @@
       {% if user.id == event.user.id %}
     <form action="{% url 'add_photo' event.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
       {% csrf_token %}
-      <input type="file" name="photo-file" class="choose-photo">
+      {% comment %} <input type="file" style="background color: black;" name="photo-file" class="choose-photo"> {% endcomment %}
+      <label for="file-upload" name="photo-file" class="custom-file-upload">
+          Choose File
+      </label>
+      <input id="file-upload" type="file"/>
       <br><br>
       <button type="submit" class="btn">Upload Photo</button>
   </form>
