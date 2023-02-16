@@ -168,7 +168,7 @@ def add_photo(request, event_id):
 @login_required
 def remove_photo(request, event_id, photo_id):
     photo = Photo.objects.get(id=photo_id)
-    if photo.user != request.user:
+    if photo.event.user != request.user:
         return HttpResponseForbidden("You do not have permission to delete this photo.")
     s3 = boto3.client('s3')
     key = photo.url.split("/")[-1]
