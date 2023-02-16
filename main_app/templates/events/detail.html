@@ -27,23 +27,22 @@
   </div>
 
   {% for photo in event.photo_set.all %}
-      <img class="responsive-img card-panel" src="{{photo.url}}" style="color: white; background-image: url(https://i.imgur.com/Bl8jv0P.png);">
-      {% if user.is_authenticated %}
-        {% if user.id == event.user.id %}
-          <form action="{% url 'remove_photo' event.id photo.id %}" method="POST" style="background-image: url(https://i.imgur.com/Bl8jv0P.png);">
-            {% csrf_token %}
-            <button type="submit" class="btn-delete">Delete Above Photo</button>
-          </form>
-          {% else %}
-          <p></p>
-        {% endif %}
-      {% endif %} 
-  {% empty %}
-      <div class="card-panel red-text center-align" style="color: white; background-image: url(https://i.imgur.com/Bl8jv0P.png);">No Photos Uploaded</div>
-  {% endfor %}
 
-{% if user.is_authenticated %}
-    {% if user.id == event.user.id %}
+  <img class="responsive-img card-panel" src="{{photo.url}}" style="color: white; background-image: url(https://i.imgur.com/Bl8jv0P.png);">
+  {% if user.is_authenticated %}
+    <form action="{% url 'remove_photo' event.id photo.id %}" method="POST" style="background-image: url(https://i.imgur.com/Bl8jv0P.png);">
+      {% csrf_token %}
+      {% if user.id == event.user.id %}
+        <button type="submit" class="btn-delete">Delete Photo</button>
+      {% endif %}
+    </form>
+  {% endif %}
+{% empty %}
+  <div class="card-panel red-text center-align" style="color: white; background-image: url(https://i.imgur.com/Bl8jv0P.png);">No Photos Uploaded</div>
+{% endfor %}
+  {% if user.is_authenticated %}
+      {% if user.id == event.user.id %}
+
     <form action="{% url 'add_photo' event.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
       {% csrf_token %}
       <label for="file-upload" class="custom-file-upload">

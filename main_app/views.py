@@ -7,6 +7,7 @@ from django.views.generic import ListView, DetailView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseForbidden
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Event, CelestialObject, Photo
 from .forms import EventForm
@@ -164,8 +165,11 @@ def add_photo(request, event_id):
     return redirect('events_detail', event_id=event_id)
 
 
+@login_required
 def remove_photo(request, event_id, photo_id):
     photo = Photo.objects.get(id=photo_id)
+    if photo.user != request.user:
+        return HttpResponseForbidden("You do not have permission to delete this photo.")
     s3 = boto3.client('s3')
     key = photo.url.split("/")[-1]
     bucket = os.environ['S3_BUCKET']
