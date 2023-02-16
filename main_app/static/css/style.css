@@ -22,7 +22,7 @@ footer.page-footer {
   color: rgb(66, 66, 66);
 }
 li {
-  color: rgb(119, 254, 247);
+  color: rgb(196, 255, 252);
 }
 ul {
   margin: auto;
@@ -50,6 +50,9 @@ h2 {
   margin-right: auto;
   margin-left: auto;
   width: 80%;
+}
+h3 {
+  font-family: 'Trispace', sans-serif;
 }
 h4 {
   color:rgb(224, 220, 227);
@@ -154,6 +157,7 @@ label {
 }
 .card-title {
   color: white;
+  font-family: 'Trispace', sans-serif;
 }
 .daily-home {
   width: 75%;
