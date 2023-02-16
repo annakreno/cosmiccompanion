@@ -13,6 +13,9 @@ nav {
   font-family: 'Trispace', sans-serif;
   position: auto;
 } 
+@media screen and (max-width: 600px) {
+  
+}
 footer.page-footer {
   padding-top: 0;
   text-align: right;
