@@ -27,6 +27,10 @@
   </div>
   {% for photo in event.photo_set.all %}
       <img class="responsive-img card-panel" src="{{photo.url}}" style="color: white; background-image: url(https://i.imgur.com/Bl8jv0P.png);">
+      <form action="{% url 'remove_photo' event.id photo.id %}" method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn">X</button>
+      </form>
     {% empty %}
       <div class="card-panel red-text center-align" style="color: white; background-image: url(https://i.imgur.com/Bl8jv0P.png);">No Photos Uploaded</div>
     {% endfor %}

@@ -161,3 +161,14 @@ def add_photo(request, event_id):
             print('An error occurred uploading file to S3')
             print(e)
     return redirect('events_detail', event_id=event_id)
+
+
+def remove_photo(request, event_id, photo_id):
+    photo = Photo.objects.get(id=photo_id)
+    s3 = boto3.client('s3')
+    key = photo.url.split("/")[-1]
+    bucket = os.environ['S3_BUCKET']
+    s3.delete_object(Bucket=bucket, Key=key)
+    photo.delete()
+    event = Event.objects.get(id=event_id)
+    return redirect('events_detail', event_id=photo.event.id)
