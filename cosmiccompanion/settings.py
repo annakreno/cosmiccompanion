@@ -144,3 +144,6 @@ LOGOUT_REDIRECT_URL = '/'
 
 TIME_FORMAT = 'P'
 TIME_INPUT_FORMATS = ['%H:%M']
+
+import django_on_heroku
+django_on_heroku.settings(locals())
