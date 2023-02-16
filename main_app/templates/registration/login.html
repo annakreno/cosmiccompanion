@@ -2,14 +2,14 @@
 {% block content %}
 
 <h1>Log In</h1>
-<div class="login-form"
+{% comment %} <div class="login-form" {% endcomment %}
   <p class="red-text">{{ error_message }}</p>
-    <form method="POST" action="{% url 'login' %}">
+    <form method="POST" action="{% url 'login' %}" class="login-form">
       {% csrf_token %}
       {{ form.as_p }}
       <input type="hidden" name="next" value="{{ next }}">
       <button type="submit" class="btn">Log In</button>
     </form>
-</div>
+{% comment %} </div> {% endcomment %}
 
 {% endblock %}

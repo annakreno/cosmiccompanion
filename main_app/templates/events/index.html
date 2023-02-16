@@ -4,15 +4,12 @@
 
 <h1>Celestial Events</h1>
 
-<div> 
-
+<div class="filter-form"> 
   <p>Filter events by date:</p>
-
-  <form method="get">
-    {{ form.as_p }}
-    <button type="submit">Filter</button>
+  <form method="get" class="filter-table">
+    {{ form.as_table }}
+    <button type="submit" class="btn">Filter</button>
   </form>
-
 </div>
 
 
@@ -25,7 +22,7 @@
             <p>Time - {{ event.time }}</p>   
             <p>Description - {{ event.description }}</p>
             <!-- <p>User - {{ event.user }}</p> -->
-            <ul>Celestial Objects -
+            <ul>Celestial Objects:
                 {% for celestial_object in event.celestial_objects.all %}
                   <li>{{ celestial_object.name }}</li>
                 {% endfor %}
