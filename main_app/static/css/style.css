@@ -226,3 +226,8 @@ input[type="submit"]:hover {
   margin-right: auto;
   display: inline-block;
 }
+
+#nasa-image {
+  position: relative;
+  z-index: -1;
+}
