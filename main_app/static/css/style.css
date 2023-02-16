@@ -75,7 +75,7 @@ table {
   background-color: hsla(0, 100%, 90%, 0.499);
   position: static;
   border-radius: 1rem;
-  margin-left: 50%;
+  /* margin-left: 50%; */
 }
 .btn:hover {
   background-color: hsla(0, 100%, 90%, 0.3);
@@ -164,6 +164,41 @@ label {
   margin-left: auto;
   margin-right: auto;
 }
+.filter-form {
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: small;
+  flex-wrap: wrap;
+}
+.filter-button {
+  background-color: black;
+  color: white;
+}
+input[type="file"] {
+  display: none;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+input[type="file"] {
+  display: none;
+}
+
+label.custom-file-upload {
+  display: block;
+  color: white;
+  background-color: hsla(0, 100%, 90%, 0.499);
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  border-radius: 1rem;
+}
+input[type="submit"]:hover {
+  background-color: #000000;
+}
 .login-form {
   width: 45%;
   margin-left: auto;
@@ -174,21 +209,4 @@ label {
   margin-left: auto;
   margin-right: auto;
   display: inline-block;
-}
-.filter-form {
-  width: 40%;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: small;
-  flex-wrap: wrap;
-}
-/* form {
-  display: flex;
-} */
-/* .filter-table {
-  flex-direction: column;
-} */
-.filter-button {
-  background-color: black;
-  color: white;
 }

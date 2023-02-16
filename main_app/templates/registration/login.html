@@ -2,7 +2,7 @@
 {% block content %}
 
 <h1>Log In</h1>
-{% comment %} <div class="login-form" {% endcomment %}
+
   <p class="red-text">{{ error_message }}</p>
     <form method="POST" action="{% url 'login' %}" class="login-form">
       {% csrf_token %}
@@ -10,6 +10,6 @@
       <input type="hidden" name="next" value="{{ next }}">
       <button type="submit" class="btn">Log In</button>
     </form>
-{% comment %} </div> {% endcomment %}
+
 
 {% endblock %}
