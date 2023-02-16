@@ -12,6 +12,7 @@ urlpatterns = [
     path('events/<int:pk>/update/', views.EventUpdate.as_view(), name='events_update'),
     path('events/<int:pk>/delete/', views.EventDelete.as_view(), name='events_delete'),
     path('events/<int:event_id>/add_photo/', views.add_photo, name='add_photo'),
+    path('events/<int:event_id>/remove_photo/<int:photo_id>/', views.remove_photo, name='remove_photo'),
     path('events/<int:event_id>/assoc_event/<int:celestialobject_id>', views.assoc_celestialobject, name='assoc_celestialobject'),
     path('events/<int:event_id>/disassoc_event/<int:celestialobject_id>', views.disassoc_celestialobject, name='disassoc_celestialobject'),
     path('celestialobjects/', views.CelestialObjectList.as_view(), name='celestial_objects_index'),
