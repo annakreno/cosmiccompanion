@@ -236,6 +236,12 @@ input[type="submit"]:hover {
   z-index: -1;
 }
 
+#home-nav-bar {
+  /* background-color: rgb(31, 3, 31); */
+  background-image: url("https://i.imgur.com/Bl8jv0P.png");
+
+}
+
 #home-nav-container {
   position: relative;
   z-index: 1;
@@ -279,6 +285,23 @@ input[type="submit"]:hover {
   border-radius: 10px;
   background-color: rgba(91, 36, 86, .5);
   /* background-image: url("https://i.imgur.com/Bl8jv0P.png"); */
+}
+
+#nasa-pic-info {
+  position: relative;
+  background-color: rgba(0, 0, 0, .5);
+  z-index: 1;
+  /* grid-column: 8/13;
+  grid-row: 12/13; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 7%;
+  padding: 20px;
+  width: 25%;
+  height: 10%;
+  border-radius: 10px;
+  /* border: 1px solid red; */
 }
 
 

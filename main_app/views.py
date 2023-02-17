@@ -22,6 +22,7 @@ import pytz
 def apod(request):
     api_key = 'JEY9zPlHaKd05eOsx447DLTJu2n51dv8TMBNZc4a'
     pacific_tz = pytz.timezone('US/Pacific')
+    # today = '2023-02-09'
     today = datetime.now(pacific_tz).date()
     url = f'https://api.nasa.gov/planetary/apod?date={today}&api_key={api_key}'
     response = requests.get(url)
