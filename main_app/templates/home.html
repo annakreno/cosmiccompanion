@@ -12,9 +12,33 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Trispace&display=swap" rel="stylesheet">
 </head>
-<body id="home-body">
+
+<body>
+
+    <header id="home-nav-bar" class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+            <ul>
+                    <li><a href="{% url 'home' %}" class="left brand-logo">&nbsp;&nbsp;Cosmic Companion</a></li>
+            </ul>    
+            <ul class="right">
+                <li><a href="{% url 'about' %}">About Us</a></li>
+                    <li><a href="{% url 'celestial_objects_index' %}"> Browse Celestial Objects</a></li>
+                    <li><a href="{% url 'events_index' %}"> Browse Events</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'celestial_objects_create' %}">Add a Celestial Object</a></li>
+                    <li><a href="{% url 'events_create' %}">Add an Event</a></li>
+                    <li><a href="{% url 'logout' %}">Log Out</a></li>
+                {% else %}
+                    <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                    <li><a href="{% url 'login' %}">Log In</a></li>
+                {% endif %}
+            </ul>
+            </div>
+        </nav>
+    </header>
     
-    <div id="home-nav-container">
+    <!-- <div id="home-nav-container">
 
         <h1 id="app-name">Cosmic Companion</h1>
 
@@ -30,13 +54,14 @@
             <div id="signup-btn"><a href="{% url 'signup' %}">Sign Up</a></div>
             <div id="login-btn"><a href="{% url 'login' %}">Log In</a></div>
             {% endif %}
-        </div>
-
-        <!-- <div id="nasa-pic-info">
-            <h1>{{ title }}</h1>
-            <p>Date: {{ date }}</p>
-            {% comment %}<p>{{ explanation }}</p>{% endcomment %}
         </div> -->
+
+        <div id="nasa-pic-info">
+            <p>NASA's astronomy picture of the day: {{ title }} ({{ date }})</p>
+            {% comment %}
+                <p>{{ explanation }}</p>
+            {% endcomment %}
+        </div>
 
     </div>
 
@@ -103,5 +128,5 @@
        <div class="right">All Rights Reserved, &copy; 2023 Cosmic Companion &nbsp;</div>
     </footer>
 </body>
-</html> -->
-
+</html>
+ -->
