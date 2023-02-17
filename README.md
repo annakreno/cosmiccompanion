@@ -4,7 +4,7 @@
 
 Our app is called "Cosmic Companion," and it allows the user to track different upcoming celestial events. If the user is not logged in, then they will only be able to view the different celestial events as well as the objects associated with that event (Ex: Sun and Moon are associated with a solar eclipse). The user can select a start and end date when viewing the celestial events so that only events within that time frame appear.  When the user signs up/logs in, then they have the ability to add celestial events and objects to the lists. In addition, they may edit the events or objects that they added as well as upload/delete pictures for their celestial events.
 
-<img src="https://i.imgur.com/KiWt8cM.png">
+<img src="https://imgur.com/K6Urb9K.png">
 
 <img src="https://i.imgur.com/4rDoFkn.png">
 
@@ -16,6 +16,7 @@ Our app is called "Cosmic Companion," and it allows the user to track different 
 4. NASA API (Astronomy Picture of the Day)
 5. HTML 
 6. PostgreSQL
+7. Amazon Web Services (AWS)
 
 ** Trello Board:
 https://trello.com/b/jo9HL1l1/cosmic-companion-by-plutonic-rockets
