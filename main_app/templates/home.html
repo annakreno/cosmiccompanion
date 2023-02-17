@@ -12,6 +12,60 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Trispace&display=swap" rel="stylesheet">
 </head>
+<body id="home-body">
+    
+    <div id="home-nav-container">
+
+        <h1 id="app-name">Cosmic Companion</h1>
+
+        <div id="nav-btns-container">
+            <div id="evt-idx-btn"><a href="{% url 'events_index' %}"> Browse Events</a></div>
+            <div id="obj-idx-btn"><a href="{% url 'celestial_objects_index' %}"> Browse Celestial Objects</a></div>
+            <div id="about-btn"><a href="{% url 'about' %}">About Us</a></div>
+            {% if user.is_authenticated %}
+            <div id="obj-create-btn"><a href="{% url 'celestial_objects_create' %}">Add a Celestial Object</a></div>
+            <div id="evt-create-btn"><a href="{% url 'events_create' %}">Add an Event</a></div>
+            <div id="logout-btn"><a href="{% url 'logout' %}">Log Out</a></div>
+            {% else %}
+            <div id="signup-btn"><a href="{% url 'signup' %}">Sign Up</a></div>
+            <div id="login-btn"><a href="{% url 'login' %}">Log In</a></div>
+            {% endif %}
+        </div>
+
+        <!-- <div id="nasa-pic-info">
+            <h1>{{ title }}</h1>
+            <p>Date: {{ date }}</p>
+            {% comment %}<p>{{ explanation }}</p>{% endcomment %}
+        </div> -->
+
+    </div>
+
+    <img id="nasa-image" src="{{ image_url }}" alt="{{ title }}" width="100%" height="100%">
+
+
+    <footer class="page-footer">
+       <div class="right">All Rights Reserved, &copy; 2023 Cosmic Companion &nbsp;</div>
+    </footer>
+</body>
+</html>
+
+
+
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Companion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Trispace&display=swap" rel="stylesheet">
+</head>
 
 <body>
     <header class="navbar-fixed">
@@ -35,9 +89,9 @@
             </ul>
             </div>
         </nav>
-    </header> -->
-
-   <div class=daily-home>
+    </header>
+    
+    <div class=daily-home>
         <h1>{{ title }}</h1>
         <p>Date: {{ date }}</p>
         {% comment %} <p>{{ explanation }}</p> {% endcomment %}
@@ -49,5 +103,5 @@
        <div class="right">All Rights Reserved, &copy; 2023 Cosmic Companion &nbsp;</div>
     </footer>
 </body>
-</html>
+</html> -->
 
